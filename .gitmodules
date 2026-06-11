@@ -4,3 +4,9 @@
 [submodule "hp-foc-pcb"]
 	path = hp-foc-pcb
 	url = https://github.com/ocanath/hp-foc-pcb
+[submodule "api/external/dartt_audio"]
+	path = api/external/dartt_audio
+	url = https://github.com/ocanath/dartt_audio
+[submodule "api/external/serial-cross-platform"]
+	path = api/external/serial-cross-platform
+	url = https://github.com/ocanath/serial-cross-platform
