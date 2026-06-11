@@ -1,0 +1,6 @@
+[submodule "foc-code"]
+	path = foc-code
+	url = https://github.com/ocanath/foc-code
+[submodule "hp-foc-pcb"]
+	path = hp-foc-pcb
+	url = https://github.com/ocanath/hp-foc-pcb
