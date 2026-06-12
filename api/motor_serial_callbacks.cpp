@@ -1,6 +1,7 @@
 #include "motor_serial_callbacks.h"
 #include "serial.h"
 #include <cstdio>
+#include "uart_config.h"
 
 namespace foc_motor {
 
@@ -17,7 +18,7 @@ int tx_blocking(unsigned char addr, dartt_buffer_t * b, void * user_context, uin
 	}
 	cobs_buf_t cb = {
 		.buf = b->buf,
-		.size = SERIAL_BUFFER_SIZE,	//important! this has to be the true size - b doesn't know what size it actually has. Use SERIAL_BUFFER_SIZE as source of truth for size since sizeof(var) is out of scope
+		.size = UART_BUF_SIZE,	//important! this has to be the true size - b doesn't know what size it actually has. Use SERIAL_BUFFER_SIZE as source of truth for size since sizeof(var) is out of scope
 		.length = b->len,
 		.encoded_state = COBS_DECODED
 	};
@@ -53,7 +54,7 @@ int rx_blocking(dartt_buffer_t * buf, void * user_context, uint32_t timeout)
 	cobs_buf_t cb_enc =
 	{
 		.buf = buf->buf,
-		.size = SERIAL_BUFFER_SIZE,	//important! this has to be the true size - b doesn't know what size it actually has. Use SERIAL_BUFFER_SIZE as source of truth for size since sizeof(var) is out of scope
+		.size = UART_BUF_SIZE,	//important! this has to be the true size - b doesn't know what size it actually has. Use SERIAL_BUFFER_SIZE as source of truth for size since sizeof(var) is out of scope
 		.length = 0
 	};
 

@@ -1,4 +1,5 @@
 #include "motor.h"
+#include "uart_config.h"
 
 #define NUM_BYTES_COBS_OVERHEAD	2	//we have to tell dartt our serial buffers are smaller than they are, so the COBS layer has room to operate. This allows for functional multiple message handling with write_multi and read_multi for large configs
 
@@ -19,13 +20,16 @@ Motor::Motor(unsigned char addr, Serial * ser)
 		ds.periph_base.buf[i] = 0;
 	}
 
+	tx_buf_mem = new unsigned char[UART_BUF_SIZE];
+	rx_buf_mem = new unsigned char[UART_BUF_SIZE];
+
 	ds.base_offset = 0;
 	ds.msg_type = TYPE_ADDR_MESSAGE;
 	ds.tx_buf.buf = tx_buf_mem;
-	ds.tx_buf.size = sizeof(tx_buf_mem) - NUM_BYTES_COBS_OVERHEAD;		//DO NOT CHANGE. This is for a good reason. See above note
+	ds.tx_buf.size = UART_BUF_SIZE - NUM_BYTES_COBS_OVERHEAD;		//DO NOT CHANGE. This is for a good reason. See above note
 	ds.tx_buf.len = 0;
 	ds.rx_buf.buf = rx_buf_mem;
-	ds.rx_buf.size = sizeof(rx_buf_mem) - NUM_BYTES_COBS_OVERHEAD;	//DO NOT CHANGE. This is for a good reason. See above note
+	ds.rx_buf.size = UART_BUF_SIZE - NUM_BYTES_COBS_OVERHEAD;	//DO NOT CHANGE. This is for a good reason. See above note
 	ds.rx_buf.len = 0;
 	ds.blocking_tx_callback = &foc_motor::tx_blocking;
 	ds.user_context_tx = (void*)(ser);
@@ -54,6 +58,12 @@ Motor::Motor(unsigned char addr, Serial * ser)
 		.buf = (unsigned char *)(&dp_ctl.command_word),
 		.size = sizeof(dp_ctl.command_word),
 	};
+}
+
+Motor::~Motor()
+{
+	delete[] tx_buf_mem;
+	delete[] rx_buf_mem;
 }
 
 int Motor::read_motion_data(void)
