@@ -1,6 +1,8 @@
 add_library(motor_controller STATIC
     motor.cpp
+	motor_serial_callbacks.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../foc-code/Core/Src/trig_fixed.c
+	
 )
 
 if(NOT TARGET dartt_audio)
@@ -17,6 +19,5 @@ target_include_directories(motor_controller PUBLIC
 )
 
 target_link_libraries(motor_controller PUBLIC
-    dartt_serial
     dartt_audio
 )

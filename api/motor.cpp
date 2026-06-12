@@ -1,5 +1,6 @@
 #include "motor.h"
 
+#define NUM_BYTES_COBS_OVERHEAD	2	//we have to tell dartt our serial buffers are smaller than they are, so the COBS layer has room to operate. This allows for functional multiple message handling with write_multi and read_multi for large configs
 
 Motor::Motor(unsigned char addr, Serial * ser)
 {

@@ -4,7 +4,7 @@
 #include "dartt_mctl_params.h"
 #include <vector>
 #include "dartt_sync.h"
-#include "serial_callbacks.h"
+#include "motor_serial_callbacks.h"
 #include "serial.h"
 
 class Motor
@@ -38,7 +38,6 @@ private:
 	dartt_mem_t read_slice;
 	dartt_mem_t ms_slice;	//slice of backing store corresponding to time in ms
 	dartt_mem_t write_slice;
-
 };
 
 #endif
