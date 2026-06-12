@@ -2,6 +2,8 @@
 #include "serial.h"
 #include <cstdio>
 
+namespace foc_motor {
+
 int tx_blocking(unsigned char addr, dartt_buffer_t * b, void * user_context, uint32_t timeout)
 {
 	if(user_context == NULL)
@@ -90,3 +92,5 @@ int rx_blocking(dartt_buffer_t * buf, void * user_context, uint32_t timeout)
 	}
 
 }
+
+} // namespace foc_motor

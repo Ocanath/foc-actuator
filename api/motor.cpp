@@ -27,9 +27,9 @@ Motor::Motor(unsigned char addr, Serial * ser)
 	ds.rx_buf.buf = rx_buf_mem;
 	ds.rx_buf.size = sizeof(rx_buf_mem) - NUM_BYTES_COBS_OVERHEAD;	//DO NOT CHANGE. This is for a good reason. See above note
 	ds.rx_buf.len = 0;
-	ds.blocking_tx_callback = &tx_blocking;
+	ds.blocking_tx_callback = &foc_motor::tx_blocking;
 	ds.user_context_tx = (void*)(ser);
-	ds.blocking_rx_callback = &rx_blocking;
+	ds.blocking_rx_callback = &foc_motor::rx_blocking;
 	ds.user_context_rx = (void*)(ser);
 	ds.timeout_ms = 10;
 
