@@ -1,4 +1,4 @@
-# Actuators
+# FOC Actuator
 
 This is a top level project tying together a complete package for my robotic actuators. It pins firmware, pcb designs, and CAD as submodules, maintaining individual history for each project while creating a hard link between versions. 
 
