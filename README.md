@@ -12,7 +12,21 @@ The API can be found under [api](api/). It depends on [dartt_audio](https://gith
 
 ## Firmware
 
-The firmware can be found under [foc-code](foc-code/). 
+The firmware can be found under [foc-code](foc-code/). You must initialize it after cloning with:
+
+```bash
+git submodule update --init foc-code
+```
+
+Or it will be empty.
 
 ## PCB
+
+The pcb is pinned under [hp-foc-pcb](hp-foc-pcb/). You must initialize it after cloning:
+
+The firmware can be found under [foc-code](foc-code/). You must initialize it after cloning:
+
+```bash
+git submodule update --init hp-foc-pcb
+```
 
