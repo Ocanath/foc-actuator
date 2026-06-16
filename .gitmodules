@@ -7,3 +7,9 @@
 [submodule "api/external/dartt_audio"]
 	path = api/external/dartt_audio
 	url = https://github.com/ocanath/dartt_audio
+[submodule "CAD/srcp-optimization"]
+	path = CAD/srcp-optimization
+	url = https://github.com/Ocanath/srcp-optimization
+[submodule "CAD/actuator-WK3505"]
+	path = CAD/actuator-WK3505
+	url = https://github.com/ocanath/actuator-WK3505
