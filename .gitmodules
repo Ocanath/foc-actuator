@@ -1,9 +1,15 @@
 [submodule "foc-code"]
-	path = foc-code
+	path = embedded/foc-code
 	url = https://github.com/ocanath/foc-code
 [submodule "hp-foc-pcb"]
-	path = hp-foc-pcb
+	path = pcb/hp-foc-pcb
 	url = https://github.com/ocanath/hp-foc-pcb
 [submodule "api/external/dartt_audio"]
 	path = api/external/dartt_audio
 	url = https://github.com/ocanath/dartt_audio
+[submodule "CAD/srcp-optimization"]
+	path = CAD/srcp-optimization
+	url = https://github.com/Ocanath/srcp-optimization
+[submodule "CAD/actuator-WK3505"]
+	path = CAD/actuator-WK3505
+	url = https://github.com/ocanath/actuator-WK3505
