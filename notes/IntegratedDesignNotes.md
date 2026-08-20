@@ -9,3 +9,7 @@
 - Alternatively, you can use a second AMS based motor controller with the bore motor controller to build a LUT.
 
 - Consider a right angle direct rotor sensing pcba?
+
+
+- Consider a 7V buck on-board to cut one wire - consolidating down to 4 total wires from 5. A buck that can deliver 7 which is tolerant to up to 100V in a small form factor is feasible
+
